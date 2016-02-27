@@ -1,0 +1,22 @@
+box: ubuntu
+
+build:
+  steps:
+    - script:
+      code: cp alpine-3.1.tar.bz2 "$WERCKER_OUTPUT_DIR/"
+
+deploy:
+  push:
+    - script:
+        code: |
+          set -x
+          tar -xjf alpine-3.1.tar.bz2
+          rm -f alpine-3.1.tar.bz2
+    - internal/docker-scratch-push:
+        author: Dr. Stefan Schimanski <stefan.schimanski@gmail.com>
+        cmd: ls
+        username: $USERNAME
+        password: $PASSWORD
+        email: stefan.schimanski@gmail.com
+        repository: sttts/wercker-deploy-bug
+        registry: https://registry.hub.docker.com
