@@ -16,3 +16,13 @@ lib                     sbin
 ```
 
 Note that there is the `this-is-the-source-dir` file. This was **not** copied into the output directory.
+
+## In the Online Wercker
+
+Built and deployed. Then:
+
+```bash
+$ docker run -it sttts/wercker-deploy-bug
+bin      etc      lib      media    proc     run      sys      usr
+dev      home     linuxrc  mnt      root     sbin     tmp      var
+```
